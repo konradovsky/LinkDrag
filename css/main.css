@@ -88,17 +88,37 @@ textarea {
 
 .browserupgrade {
     margin: 0.2em 0;
+    
     background: #ccc;
     color: #000;
     padding: 0.2em 0;
 }
-
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
 
+    .right-link-dropper{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 300px;
+        height: 100%;
+        background-color: #0066a1;
+        color: white;
 
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+
+        text-align: center;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
+    }
+    .app-name > h2 {
+        font-weight: 100;
+    }
 
 
 
