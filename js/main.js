@@ -21,7 +21,7 @@ $('.input-for-drop').bind('input', function () {
         singleLink.title = shortTitle[0].charAt(0).toUpperCase() + shortTitle[0].slice(1);
     }
 
-    linksArray.push(singleLink);
+    linksArray.unshift(singleLink);
 
     clearInput();
     getFavIcon(singleLink.favIcon);
@@ -32,8 +32,9 @@ function createList() {
     linksArray.forEach(link => {
         $('.links-list').append(`
             <div class="single-link-holder">
-            <p>${link.title}</p>
             <img src="${link.favIcon}" class="favIconSrc">
+            <p>${link.title}</p>
+           
             </div>
         `);
     })
@@ -49,5 +50,19 @@ function clearInput() {
 }
 
 function getFavIcon(favIcon){
-    $('#favIcon').attr("src", favIcon);  
+    $('#favIcon').attr("src", favIcon);
+    $('.info-holder').append(`
+        <p class="added-text">Added successfuly</p>
+    `)
+    $('.info-holder').addClass("animated fadeIn whiteBG");
+    setTimeout(function() {
+        $('.info-holder').removeClass("fadeIn");
+        $('.info-holder').addClass("fadeOut");     
+        setTimeout(() => {
+            $('.added-text').html('');
+            $('#favIcon').removeAttr("src");    
+            $('.info-holder').removeClass("animated fadeOut whiteBG");
+        }, 600)   
+    }, 1400);  
+    
 }
